@@ -12,6 +12,7 @@ import { useI18n } from "../../i18n";
 import { useKcContext } from "../../KcContext";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
+import { ConditionalUIData } from "../../components/ConditionalUIData";
 
 export function Form() {
     const { kcContext } = useKcContext();
@@ -24,6 +25,7 @@ export function Form() {
     const { kcClsx } = useKcClsx();
 
     return (
+        <>
         <div id="kc-form">
             <div id="kc-form-wrapper">
                 {kcContext.realm.password && (
@@ -167,5 +169,7 @@ export function Form() {
                 )}
             </div>
         </div>
+        <ConditionalUIData />
+        </>
     );
 }

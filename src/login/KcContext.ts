@@ -5,7 +5,10 @@
  * $ npx keycloakify own --path "login/KcContext.ts" --revert
  */
 
-import { type ExtendKcContext, createUseKcContext } from "@keycloakify/login-ui/KcContext";
+import {
+  type ExtendKcContext,
+  createUseKcContext,
+} from "@keycloakify/login-ui/KcContext";
 import type { KcEnvName, ThemeName } from "../kc.gen";
 
 export type KcContextExtension = {
@@ -13,8 +16,22 @@ export type KcContextExtension = {
     properties: Record<KcEnvName, string> & {};
     // NOTE: Here you can declare more properties to extend the KcContext
     // See: https://docs.keycloakify.dev/faq-and-help/some-values-you-need-are-missing-from-in-kccontext
-};
+} & ConditionalUIData;
 
+type ConditionalUIData =
+  | {
+      enableWebAuthnConditionalUI: true;
+      isUserIdentified: "true" | "false";
+      challenge: string;
+      userVerification: string;
+      rpId: string;
+      createTimeout: number | string;
+    }
+  | {
+      enableWebAuthnConditionalUI?: false;
+    };
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type KcContextExtensionPerPage = {};
 
 export type KcContext = ExtendKcContext<KcContextExtension, KcContextExtensionPerPage>;

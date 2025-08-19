@@ -1,11 +1,12 @@
 # This file is managed by Keycloakify, do not edit it manually.
 
 # === Owned files start ===
+# login/KcContext.ts
+# login/pages/login/Form.tsx
 # === Owned files end =====
 
 # === @keycloakify/login-ui v250004.2.2 ===
 /login/i18n.ts
-/login/KcContext.ts
 /login/KcPage.tsx
 /login/styleLevelCustomization.tsx
 /login/components/LogoutOtherSessions.tsx
@@ -41,7 +42,6 @@
 /login/pages/idp-review-user-profile/Page.tsx
 /login/pages/info/index.ts
 /login/pages/info/Page.tsx
-/login/pages/login/Form.tsx
 /login/pages/login/index.ts
 /login/pages/login/Info.tsx
 /login/pages/login/Page.tsx
